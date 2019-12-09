@@ -1,0 +1,107 @@
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.89);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 2;
+}
+
+.overlay.open {
+  max-height: 100%;
+}
+
+.overlay.open img {
+  max-width: 100%;
+  width: auto\9; /* ie8 */
+  max-height: 100vh;
+}
+
+.overlay.open {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 100px auto 100px;
+}
+
+.overlay-inner {
+  display: grid;
+  background: rgba(255, 255, 255, 0); /* transparent */
+  height: auto;
+  width: auto;
+  padding: 3px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0px;
+  grid-gap: 0%;
+}
+
+.nextButtonContainer {
+  height: 100vh;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  background: none;
+  border: none;
+
+  background-image: url("right_arrow2.png");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: right;
+  background-size: 50%;
+}
+.nextButtonContainer:hover {
+  cursor: pointer;
+}
+
+.prevButtonContainer {
+  height: 100vh;
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  background: none;
+  border: none;
+
+  background-image: url("left_arrow2.png");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: left;
+  background-size: 50%;
+}
+.prevButtonContainer:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 756px) {
+  .overlay.open {
+    grid-template-columns: 30px auto 30px;
+  }
+  .nextButtonContainer {
+    background-size: 70%;
+  }
+  .prevButtonContainer {
+    background-size: 70%;
+  }
+}
+
+
+.close {
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  padding: 5px;
+  width: 75px;
+
+  cursor: pointer;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+}
+
+.close:hover {
+  color: #c0272f;
+
+}
