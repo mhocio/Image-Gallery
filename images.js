@@ -13,7 +13,7 @@ const pathToImages = "images/"
 function generateHTML([h, v]) {
     return `
       <div class="item h${h} v${v}">
-        <img src=${pathToImages}/${randomNumber(numberOfImages)}.jpg>
+        <img class="lozad" data-src=${pathToImages}/${randomNumber(numberOfImages)}.jpg>
         <div class="item__overlay">
           <button class="view">View →</button>
         </div>
@@ -142,4 +142,7 @@ window.onload = function () {
     items.forEach(item => item.addEventListener('click', handleClick_image));
 
     overlayClose.addEventListener('click', close_image);
+
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
 };
