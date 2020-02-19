@@ -238,15 +238,30 @@ window.onload = function () {
     }
 
     var imagesArray = this.document.querySelectorAll('.item img');
-
     imagesArray.forEach(image => image.addEventListener('load', loadImage));
-    //imagesArray.forEach(image => image.addEventListener('load', loadImage));
 
     const items = document.querySelectorAll('.item');
-
     items.forEach(item => item.addEventListener('click', handleClick_image));
 
     overlayClose.addEventListener('click', close_image);
+
+
+    var imageDisplayed = document.querySelector('.overlay')
+    var manager = new Hammer.Manager(imageDisplayed);
+    var Swipe = new Hammer.Swipe();
+    manager.add(Swipe);
+
+    manager.on('swipe', function(e) {
+        console.log(e.offsetDirection);
+        console.log(e.deltaX);
+
+        if (e.offsetDirection == 2) {
+            showNextImage();
+        } else if (e.offsetDirection == 4) {
+            showPrevImage();
+        }
+    });
+
 
     //const observer = lozad(); // lazy loads elements with default selector as '.lozad'
     //observer.observe();

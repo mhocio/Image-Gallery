@@ -36,6 +36,8 @@
   margin-right: 0;
   margin-top: 0px;
   grid-gap: 0%;
+
+  transition: transform .5s ease-out;
 }
 
 .nextButtonContainer {
@@ -86,6 +88,19 @@
   }
 }
 
+@media (pointer:coarse) and (max-width: 756px) {
+  .overlay.open {
+    grid-template-columns: auto;
+  }
+  .nextButtonContainer {
+    background-size: 70%;
+    display: none;
+  }
+  .prevButtonContainer {
+    background-size: 70%;
+    display: none;
+  }
+}
 
 .close {
   color: rgb(0, 0, 0);
